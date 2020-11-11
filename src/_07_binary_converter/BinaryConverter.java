@@ -11,7 +11,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class BinaryConverter implements ActionListener {
-public static void main(String[] args) {
+	JTextField string = new JTextField(20);
+	JButton button = new JButton();
+	JLabel answer = new JLabel();
+	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
+	public static void main(String[] args) {
 new BinaryConverter().Run();
 	
 	
@@ -37,14 +42,10 @@ String convert(String input) {
     
 }
 	void Run() {
-		JFrame frame = new JFrame();
-		JPanel panel = new JPanel();
+		
 		frame.add(panel);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		JTextField string = new JTextField(20);
-		JButton button = new JButton();
-		JLabel answer = new JLabel();
 		panel.add(string);
 		panel.add(button);
 		panel.add(answer);
@@ -54,6 +55,9 @@ String convert(String input) {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		String binaryInput = string.getText();
+		String converted = convert(binaryInput);
+		answer.setText(converted);
+		frame.pack();
 	}
 }
